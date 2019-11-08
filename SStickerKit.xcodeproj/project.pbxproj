@@ -21,11 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		365BCF4C2371739800F06C51 /* SStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF4A2371739800F06C51 /* SStickerView.h */; };
+		365BCF4C2371739800F06C51 /* SStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF4A2371739800F06C51 /* SStickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		365BCF4D2371739800F06C51 /* SStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365BCF4B2371739800F06C51 /* SStickerView.m */; };
-		365BCF592371AE1600F06C51 /* SStickerStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF572371AE1600F06C51 /* SStickerStyle.h */; };
+		365BCF592371AE1600F06C51 /* SStickerStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF572371AE1600F06C51 /* SStickerStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		365BCF5A2371AE1600F06C51 /* SStickerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 365BCF582371AE1600F06C51 /* SStickerStyle.m */; };
-		36AB6D04237304D9005CCE63 /* SStickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AB6D02237304D9005CCE63 /* SStickerControl.h */; };
+		36AB6D04237304D9005CCE63 /* SStickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AB6D02237304D9005CCE63 /* SStickerControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36AB6D05237304D9005CCE63 /* SStickerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AB6D03237304D9005CCE63 /* SStickerControl.m */; };
 		36F155D020DD0FAB002436F4 /* SStickerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F155CE20DD0FAB002436F4 /* SStickerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36F155D920DD0FC5002436F4 /* SStickerKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F155D820DD0FC5002436F4 /* SStickerKitTests.m */; };
