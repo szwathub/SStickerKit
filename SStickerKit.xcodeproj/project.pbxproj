@@ -16,10 +16,17 @@
 			dependencies = (
 			);
 			name = "Cleanup Whitespace";
+			productName = "Cleanup Whitespace";
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		365BCF4C2371739800F06C51 /* SStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF4A2371739800F06C51 /* SStickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		365BCF4D2371739800F06C51 /* SStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 365BCF4B2371739800F06C51 /* SStickerView.m */; };
+		365BCF592371AE1600F06C51 /* SStickerStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 365BCF572371AE1600F06C51 /* SStickerStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		365BCF5A2371AE1600F06C51 /* SStickerStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 365BCF582371AE1600F06C51 /* SStickerStyle.m */; };
+		36AB6D04237304D9005CCE63 /* SStickerControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 36AB6D02237304D9005CCE63 /* SStickerControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36AB6D05237304D9005CCE63 /* SStickerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 36AB6D03237304D9005CCE63 /* SStickerControl.m */; };
 		36F155D020DD0FAB002436F4 /* SStickerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 36F155CE20DD0FAB002436F4 /* SStickerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36F155D920DD0FC5002436F4 /* SStickerKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 36F155D820DD0FC5002436F4 /* SStickerKitTests.m */; };
 		36F155DB20DD0FC5002436F4 /* SStickerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3601B55B200C90960011CCAE /* SStickerKit.framework */; };
@@ -36,15 +43,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0930C79BED30F7ABA259B4F2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		0930C79BED30F7ABA259B4F2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		3601B55B200C90960011CCAE /* SStickerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SStickerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		365BCF4A2371739800F06C51 /* SStickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SStickerView.h; sourceTree = "<group>"; };
+		365BCF4B2371739800F06C51 /* SStickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SStickerView.m; sourceTree = "<group>"; };
+		365BCF562371AC4100F06C51 /* SStickerConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SStickerConfiguration.h; sourceTree = "<group>"; };
+		365BCF572371AE1600F06C51 /* SStickerStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SStickerStyle.h; sourceTree = "<group>"; };
+		365BCF582371AE1600F06C51 /* SStickerStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SStickerStyle.m; sourceTree = "<group>"; };
+		36AB6D02237304D9005CCE63 /* SStickerControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SStickerControl.h; sourceTree = "<group>"; };
+		36AB6D03237304D9005CCE63 /* SStickerControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SStickerControl.m; sourceTree = "<group>"; };
 		36F155CE20DD0FAB002436F4 /* SStickerKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SStickerKit.h; sourceTree = "<group>"; };
 		36F155CF20DD0FAB002436F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36F155D620DD0FC4002436F4 /* SStickerKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SStickerKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		36F155D820DD0FC5002436F4 /* SStickerKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SStickerKitTests.m; sourceTree = "<group>"; };
 		36F155DA20DD0FC5002436F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		46BBEA15B4DDA1ED156C783D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		A7311E27F935C99128C55F26 /* SStickerKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; path = SStickerKit.podspec; sourceTree = "<group>"; };
+		46BBEA15B4DDA1ED156C783D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A7311E27F935C99128C55F26 /* SStickerKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = SStickerKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +113,13 @@
 			isa = PBXGroup;
 			children = (
 				36F155CE20DD0FAB002436F4 /* SStickerKit.h */,
+				365BCF562371AC4100F06C51 /* SStickerConfiguration.h */,
+				365BCF572371AE1600F06C51 /* SStickerStyle.h */,
+				365BCF582371AE1600F06C51 /* SStickerStyle.m */,
+				365BCF4A2371739800F06C51 /* SStickerView.h */,
+				365BCF4B2371739800F06C51 /* SStickerView.m */,
+				36AB6D02237304D9005CCE63 /* SStickerControl.h */,
+				36AB6D03237304D9005CCE63 /* SStickerControl.m */,
 				36F155CF20DD0FAB002436F4 /* Info.plist */,
 			);
 			path = SStickerKit;
@@ -120,7 +141,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36AB6D04237304D9005CCE63 /* SStickerControl.h in Headers */,
 				36F155D020DD0FAB002436F4 /* SStickerKit.h in Headers */,
+				365BCF592371AE1600F06C51 /* SStickerStyle.h in Headers */,
+				365BCF4C2371739800F06C51 /* SStickerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +206,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3601B555200C90960011CCAE /* Build configuration list for PBXProject "PROJECT" */;
+			buildConfigurationList = 3601B555200C90960011CCAE /* Build configuration list for PBXProject "SStickerKit" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,6 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				365BCF4D2371739800F06C51 /* SStickerView.m in Sources */,
+				36AB6D05237304D9005CCE63 /* SStickerControl.m in Sources */,
+				365BCF5A2371AE1600F06C51 /* SStickerStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +519,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3601B555200C90960011CCAE /* Build configuration list for PBXProject "PROJECT" */ = {
+		3601B555200C90960011CCAE /* Build configuration list for PBXProject "SStickerKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3601B56D200C90960011CCAE /* Debug */,
