@@ -20,7 +20,8 @@
 @protocol SStickerConfiguration <NSObject>
 
 @property (nonatomic, assign) BOOL isActive;
-@property (nonatomic, assign) CGRect maskRect;
+
+@property (nonatomic, strong) UIBezierPath *maskPath;
 
 @property (nonatomic, assign) BOOL isFlip;
 
