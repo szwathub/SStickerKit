@@ -18,6 +18,8 @@
 @interface SStickerView () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIView *backView;
+
+@property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, strong, readwrite) UIView *contentView;
 @property (nonatomic, strong) NSArray<SStickerControl *> *stickerControls;
 
@@ -74,8 +76,10 @@
     
     [self addSubview:self.backView];
     [self.delegate stickerView:self configureBackView:self.backView];
+    
+    [self addSubview:self.maskView];
 
-    [self addSubview:self.contentView];
+    [self.maskView addSubview:self.contentView];
 
     SStickerCorner corner = [self.delegate controlCornerForStickerView:self];
     [self.stickerControls enumerateObjectsUsingBlock:^(SStickerControl *control, NSUInteger idx, BOOL *stop) {
@@ -104,7 +108,7 @@
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
         maskLayer.frame = self.bounds;
         maskLayer.path = self.sticker.maskPath.CGPath;
-        self.contentView.layer.mask = maskLayer;
+        self.maskView.layer.mask = maskLayer;
     }
 
     [self fitCtrlScaleX:self.sticker.scale scaleY:self.sticker.scale];
@@ -214,7 +218,7 @@
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
         maskLayer.frame = self.bounds;
         maskLayer.path  = self.sticker.maskPath.CGPath;
-        self.contentView.layer.mask = maskLayer;
+        self.maskView.layer.mask = maskLayer;
     }
 }
 
@@ -331,6 +335,14 @@
     }
     
     return _backView;
+}
+
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+    }
+    
+    return _maskView;
 }
 
 - (UIView *)contentView {
