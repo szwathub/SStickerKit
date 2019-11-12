@@ -37,6 +37,8 @@
 #pragma mark - Life Cycle
 - (instancetype)init {
     if (self= [super init]) {
+        self.maskEnable = YES;
+
         [self addGestureRecognizer:self.panGesture];
         [self addGestureRecognizer:self.tapGesture];
         [self.tapGesture requireGestureRecognizerToFail:self.panGesture];
@@ -90,24 +92,27 @@
 
 #pragma mark - Public Methods
 - (void)updateStickerConstraints {
-    self.center    = self.stickerModel.center;
-    self.transform = self.stickerModel.transform;
-    if (self.stickerModel.isFlip) {
+    self.isActive  = self.sticker.isActive;
+
+    self.center    = self.sticker.center;
+    self.transform = self.sticker.transform;
+    if (self.sticker.isFlip) {
         self.contentView.transform = CGAffineTransformScale(self.contentView.transform, -1.0, 1.0);
     }
+    
+    if (!self.sticker.maskPath.isEmpty && self.maskEnable) {
+        CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+        maskLayer.frame = self.bounds;
+        maskLayer.path = self.sticker.maskPath.CGPath;
+        self.contentView.layer.mask = maskLayer;
+    }
 
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:self.stickerModel.maskRect];
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    maskLayer.frame = self.bounds;
-    maskLayer.path = maskPath.CGPath;
-    self.contentView.layer.mask = maskLayer;
-
-    [self fitCtrlScaleX:self.stickerModel.scale scaleY:self.stickerModel.scale];
+    [self fitCtrlScaleX:self.sticker.scale scaleY:self.sticker.scale];
 }
 
 - (void)resetStickerConstraints {
-    self.center    = self.stickerModel.center;
-    self.transform = self.stickerModel.transform;
+    self.center    = self.sticker.center;
+    self.transform = self.sticker.transform;
     self.contentView.transform = CGAffineTransformIdentity;
     self.contentView.layer.mask = nil;
     for (SStickerControl *control in self.stickerControls) {
@@ -160,8 +165,8 @@
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
     
-    self.stickerModel.center    = self.center;
-    self.stickerModel.transform = self.transform;
+    self.sticker.center    = self.center;
+    self.sticker.transform = self.transform;
 }
 
 - (void)scaleFitWithCtrlPoint:(CGPoint)ctrlPoint {
@@ -179,9 +184,9 @@
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
     
-    self.stickerModel.center    = self.center;
-    self.stickerModel.scale     = scale * self.stickerModel.scale;
-    self.stickerModel.transform = self.transform;
+    self.sticker.center    = self.center;
+    self.sticker.scale     = scale * self.sticker.scale;
+    self.sticker.transform = self.transform;
     [self configMaskView];
 }
 
@@ -203,12 +208,12 @@
 }
 
 - (void)configMaskView {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(stickerView:rectIntersection:)]) {
-        self.stickerModel.maskRect = [self.delegate stickerView:self rectIntersection:self.frame];
-        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:self.stickerModel.maskRect];
+    if (self.maskEnable && self.delegate && [self.delegate respondsToSelector:@selector(stickerView:bezierPathInRect:)]) {
+        self.sticker.maskPath = [self.delegate stickerView:self bezierPathInRect:self.frame];
+
         CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
         maskLayer.frame = self.bounds;
-        maskLayer.path = maskPath.CGPath;
+        maskLayer.path  = self.sticker.maskPath.CGPath;
         self.contentView.layer.mask = maskLayer;
     }
 }
@@ -219,7 +224,7 @@
     [UIView animateWithDuration:.25f animations:^{
         self.contentView.transform = CGAffineTransformScale(self.contentView.transform, -1.0, 1.0);
     } completion:^(BOOL finished) {
-        self.stickerModel.isFlip = !self.stickerModel.isFlip;
+        self.sticker.isFlip = !self.sticker.isFlip;
     }];
 }
 
@@ -278,7 +283,7 @@
     self.center = CGPointMake(self.center.x + pt.x , self.center.y + pt.y);
     [gesture setTranslation:CGPointMake(0, 0) inView:self.superview];
 
-    self.stickerModel.center = self.center;
+    self.sticker.center = self.center;
     [self configMaskView];
 }
 

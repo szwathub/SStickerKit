@@ -27,8 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<SStickerDelegate> delegate;
 
+@property (nonatomic, strong) id<SStickerConfiguration> sticker;
 @property (nonatomic, assign) BOOL isActive;
-@property (nonatomic, strong) id<SStickerConfiguration> stickerModel;
+@property (nonatomic, assign) BOOL maskEnable; // default is YES
 
 - (void)updateStickerConstraints;
 - (void)resetStickerConstraints;
@@ -50,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)willResetStickerView:(__kindof SStickerView *)stickerView;
 - (void)willEditStickerView:(__kindof SStickerView *)stickerView;
 
-- (CGRect)stickerView:(__kindof SStickerView *)stickerView rectIntersection:(CGRect)rect;
+- (UIBezierPath *)stickerView:(__kindof SStickerView *)stickerView bezierPathInRect:(CGRect)rect;
 
 @end
 
