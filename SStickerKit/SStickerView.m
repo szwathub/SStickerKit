@@ -32,6 +32,8 @@
 
 @property (nonatomic) UIPanGestureRecognizer *panGesture;
 @property (nonatomic) UITapGestureRecognizer *tapGesture;
+@property (nonatomic) UIRotationGestureRecognizer *rotateGesture;
+@property (nonatomic) UIPinchGestureRecognizer *scaleGesture;
 
 @end
 
@@ -43,6 +45,8 @@
 
         [self addGestureRecognizer:self.panGesture];
         [self addGestureRecognizer:self.tapGesture];
+        [self addGestureRecognizer:self.rotateGesture];
+        [self addGestureRecognizer:self.scaleGesture];
         [self.tapGesture requireGestureRecognizerToFail:self.panGesture];
     }
     
@@ -297,6 +301,44 @@
     }
 }
 
+- (void)rotate:(UIRotationGestureRecognizer *)gesture {
+    if (!self.isActive) {
+        return ;
+    }
+    
+    CGFloat angle = gesture.rotation;
+    gesture.rotation = 0.f;
+    self.transform = CGAffineTransformRotate(self.transform, angle);
+
+    CGPoint oPoint = [self convertPoint:[self getRealOriginalPoint] toView:self.superview];
+    self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
+                              self.center.y + (self.center.y - oPoint.y));
+
+    self.sticker.center    = self.center;
+    self.sticker.transform = self.transform;
+}
+
+- (void)scale:(UIPinchGestureRecognizer *)gesture {
+    if (!self.isActive) {
+        return ;
+    }
+    
+    CGFloat scale = gesture.scale;
+    gesture.scale = 1.0;
+
+    self.transform = CGAffineTransformScale(self.transform, scale, scale);
+    [self fitCtrlScaleX:scale scaleY:scale];
+
+    CGPoint oPoint = [self convertPoint:[self getRealOriginalPoint] toView:self.superview];
+    self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
+                              self.center.y + (self.center.y - oPoint.y));
+    
+    self.sticker.center    = self.center;
+    self.sticker.scale     = scale * self.sticker.scale;
+    self.sticker.transform = self.transform;
+    [self configMaskView];
+}
+
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -387,7 +429,7 @@
                                                               action:@selector(pan:)];
         _panGesture.delegate = self;
         _panGesture.minimumNumberOfTouches = 1;
-        _panGesture.maximumNumberOfTouches = 2;
+        _panGesture.maximumNumberOfTouches = 1;
     }
 
     return _panGesture;
@@ -401,6 +443,24 @@
     }
 
     return _tapGesture;
+}
+
+- (UIRotationGestureRecognizer *)rotateGesture {
+    if (!_rotateGesture) {
+        _rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self
+                                                                      action:@selector(rotate:)];
+    }
+    
+    return _rotateGesture;
+}
+
+- (UIPinchGestureRecognizer *)scaleGesture {
+    if (!_scaleGesture) {
+        _scaleGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self
+                                                                  action:@selector(scale:)];
+    }
+    
+    return _scaleGesture;
 }
 
 @end
