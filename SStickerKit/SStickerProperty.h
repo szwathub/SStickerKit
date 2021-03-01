@@ -18,11 +18,11 @@
 
 @protocol SStickerProperty <NSObject>
 
-@property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, assign) BOOL active;
 
 //@property (nonatomic, strong) UIBezierPath *maskPath;
 
-@property (nonatomic, assign) BOOL isFlip;
+@property (nonatomic, assign) BOOL flip;
 
 //@property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGFloat scale;

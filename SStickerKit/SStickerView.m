@@ -45,7 +45,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 @property (nonatomic) CGFloat initialAngle;
 
 @property (nonatomic) UIPanGestureRecognizer *panGesture;
-@property (nonatomic, readwrite) UITapGestureRecognizer *tapGesture;
+@property (nonatomic) UITapGestureRecognizer *tapGesture;
 @property (nonatomic) UIRotationGestureRecognizer *rotateGesture;
 @property (nonatomic) UIPinchGestureRecognizer *scaleGesture;
 
@@ -132,7 +132,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 
 // MARK: - Public Methods
 - (void)updateStickerConstraints {
-    self.isActive  = self.sticker.isActive;
+    self.active  = self.sticker.active;
 
 //    self.center    = self.sticker.center;
     self.center = CGPointMake(self.sticker.x, self.sticker.y);
@@ -140,7 +140,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.transform = CGAffineTransformMake(self.sticker.a, self.sticker.b,
                                            self.sticker.c, self.sticker.d,
                                            self.sticker.tx, self.sticker.ty);
-    if (self.sticker.isFlip) {
+    if (self.sticker.flip) {
         self.contentView.transform = CGAffineTransformScale(self.contentView.transform, -1.0, 1.0);
     }
 
@@ -292,7 +292,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     [UIView animateWithDuration:.25f animations:^{
         self.contentView.transform = CGAffineTransformScale(self.contentView.transform, -1.0, 1.0);
     } completion:^(BOOL finished) {
-        self.sticker.isFlip = !self.sticker.isFlip;
+        self.sticker.flip = !self.sticker.flip;
     }];
 }
 
@@ -335,7 +335,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gesture {
-    if (!self.isActive) {
+    if (!self.active) {
         return ;
     }
 
@@ -359,7 +359,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 }
 
 - (void)rotate:(UIRotationGestureRecognizer *)gesture {
-    if (!self.isActive) {
+    if (!self.active) {
         return ;
     }
 
@@ -384,7 +384,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 }
 
 - (void)scale:(UIPinchGestureRecognizer *)gesture {
-    if (!self.isActive) {
+    if (!self.active) {
         return ;
     }
 
@@ -432,13 +432,13 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 
 
 // MARK: - Setters
-- (void)setIsActive:(BOOL)isActive {
-    _isActive = isActive;
+- (void)setActive:(BOOL)active {
+    _active = active;
 
     for (SStickerControl *control in self.stickerControls) {
-        control.hidden = !_isActive;
+        control.hidden = !_active;
     }
-    self.backView.hidden = !_isActive;
+    self.backView.hidden = !_active;
 }
 
 - (void)setDelegate:(id<SStickerDelegate>)delegate {
@@ -480,23 +480,15 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 
 - (NSArray<SStickerControl *> *)stickerControls {
     if (!_stickerControls) {
-        NSMutableArray *tmp = [NSMutableArray array];
+        NSMutableArray *stickerControls = [NSMutableArray array];
         for (NSInteger index = 0; index < 4; index++) {
             SStickerControl *control = [[SStickerControl alloc] init];
-            if (0 == index) {
-                control.corner = SStickerTopLeft;
-            } else if (1 == index) {
-                control.corner = SStickerTopRight;
-            } else if (2 == index) {
-                control.corner = SStickerBottomLeft;
-            } else {
-                control.corner = SStickerBottomRight;
-            }
+            control.corner = 1 << index;
 
-            [tmp addObject:control];
+            [stickerControls addObject:control];
         }
 
-        _stickerControls = [tmp copy];
+        _stickerControls = [stickerControls copy];
     }
 
     return _stickerControls;

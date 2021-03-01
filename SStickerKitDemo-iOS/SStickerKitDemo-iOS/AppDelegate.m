@@ -1,14 +1,14 @@
 ///
 ///  Copyright © 2019 ZhiweiSun. All rights reserved.
 ///
-///  File name: SAppDelegate.m
+///  File name: AppDelegate.m
 ///  Author:    Zhiwei Sun @szwathub
 ///  E-mail:    szwathub@gmail.com
 ///
 
-#import "SAppDelegate.h"
+#import "AppDelegate.h"
 
-@implementation SAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /* Override point for customization after application launch. */

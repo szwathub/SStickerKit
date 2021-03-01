@@ -39,10 +39,8 @@ typedef struct CG_BOXABLE SStickerAction SStickerAction;
 @property (nonatomic, weak) id<SStickerDelegate> delegate;
 
 @property (nonatomic, strong) id<SStickerProperty> sticker;
-@property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, assign) BOOL active;
 @property (nonatomic, assign) BOOL maskEnable; // default is YES
-
-@property (nonatomic, readonly) UITapGestureRecognizer *tapGesture;
 
 - (void)updateStickerConstraints;
 - (void)resetStickerConstraints;

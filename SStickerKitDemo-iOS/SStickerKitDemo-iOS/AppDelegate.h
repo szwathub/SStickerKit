@@ -1,7 +1,7 @@
 ///
 ///  Copyright © 2019 ZhiweiSun. All rights reserved.
 ///
-///  File name: SAppDelegate.h
+///  File name: AppDelegate.h
 ///  Author:    Zhiwei Sun @szwathub
 ///  E-mail:    szwathub@gmail.com
 ///
@@ -13,7 +13,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
