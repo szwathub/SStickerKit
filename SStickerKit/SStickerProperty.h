@@ -2,13 +2,13 @@
 //  Copyright © 2019 ZhiweiSun. All rights reserved.
 //
 //  File name: SStickerProperty.h
-//  Author:    Zhiwei Sun @Cyrex
+//  Author:    Zhiwei Sun @szwathub
 //  E-mail:    szwathub@gmail.com
 //
 //  Description:
 //
 //  History:
-//      2019/11/5: Created by Cyrex on 2019/11/5
+//      2019/11/5: Created by szwathub on 2019/11/5
 //
 
 #ifndef SStickerProperty__H_

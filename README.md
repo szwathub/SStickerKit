@@ -1,11 +1,11 @@
 <h1 align="center">SStickerKit</h1>
 
 <p align="center">
-    <a href="https://travis-ci.com/Cyrex/SStickerKit">
-        <img src="https://travis-ci.com/Cyrex/SStickerKit.svg?branch=master" alt="Travis Build Status">
+    <a href="https://travis-ci.com/szwathub/SStickerKit">
+        <img src="https://travis-ci.com/szwathub/SStickerKit.svg?branch=master" alt="Travis Build Status">
     </a>
-    <a href="https://codecov.io/github/Cyrex/SStickerKit">
-        <img src="https://codecov.io/gh/Cyrex/SStickerKit/branch/master/graph/badge.svg" alt="Codecov">
+    <a href="https://codecov.io/github/szwathub/SStickerKit">
+        <img src="https://codecov.io/gh/szwathub/SStickerKit/branch/master/graph/badge.svg" alt="Codecov">
     </a>
     <a href="http://cocoapods.org/pods/SStickerKit">
         <img src="https://img.shields.io/cocoapods/v/SStickerKit.svg?style=flat" alt="CocoaPods Version">
@@ -13,7 +13,7 @@
     <a href="https://houndci.com">
         <img src="https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg" alt="Hound">
     </a>
-    <a href="https://github.com/Cyrex/SStickerKit">
+    <a href="https://github.com/szwathub/SStickerKit">
         <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
     </a>
 </p>
@@ -26,7 +26,7 @@
     <a href="http://cocoapods.org/pods/SStickerKit">
         <img src="https://img.shields.io/cocoapods/p/SStickerKit.svg?style=flat" alt="Platform">
     </a>
-    <a href="https://github.com/Cyrex/SStickerKit/pulls">
+    <a href="https://github.com/szwathub/SStickerKit/pulls">
         <img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="Contributions welcome">
     </a>
 </p>
@@ -49,7 +49,7 @@ To install with carthage, follow the instruction on [Carthage](https://github.co
 
 ##### Cartfile
 ```ruby
-github "Cyrex/SStickerKit"
+github "szwathub/SStickerKit"
 ```
 
 #### Manual Installation
@@ -57,7 +57,7 @@ Copy and add all of the files in the `SStickerKit` directory (and its subdirecto
 
 ## Author
 
-Cyrex, szwathub@gmail.com
+szwathub, szwathub@gmail.com
 
 ## License
 

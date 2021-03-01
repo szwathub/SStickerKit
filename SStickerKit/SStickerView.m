@@ -2,22 +2,22 @@
 //  Copyright © 2019 ZhiweiSun. All rights reserved.
 //
 //  File name: SStickerView.m
-//  Author:    Zhiwei Sun @Cyrex
+//  Author:    Zhiwei Sun @szwathub
 //  E-mail:    szwathub@gmail.com
 //
 //  Description:
 //
 //  History:
-//      2019/11/5: Created by Cyrex on 2019/11/5
+//      2019/11/5: Created by szwathub on 2019/11/5
 //
 
 #import "SStickerView.h"
 
-NSString *const SStickerActionNone      = @"com.cyrex.stickerkit.action.none";
-NSString *const SStickerActionMirror    = @"com.cyrex.stickerkit.action.mirror";
-NSString *const SStickerActionRotate    = @"com.cyrex.stickerkit.action.rotate";
-NSString *const SStickerActionScale     = @"com.cyrex.stickerkit.action.scale";
-NSString *const SStickerActionTransform = @"com.cyrex.stickerkit.action.transform";
+NSString *const SStickerActionNone      = @"com.szwathub.stickerkit.action.none";
+NSString *const SStickerActionMirror    = @"com.szwathub.stickerkit.action.mirror";
+NSString *const SStickerActionRotate    = @"com.szwathub.stickerkit.action.rotate";
+NSString *const SStickerActionScale     = @"com.szwathub.stickerkit.action.scale";
+NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.transform";
 
 @interface SStickerView () <UIGestureRecognizerDelegate> {
     // private

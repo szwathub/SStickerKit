@@ -2,7 +2,7 @@
 ///  Copyright © 2019 ZhiweiSun. All rights reserved.
 ///
 ///  File name: SViewController.m
-///  Author:    Zhiwei Sun @Cyrex
+///  Author:    Zhiwei Sun @szwathub
 ///  E-mail:    szwathub@gmail.com
 ///
 
