@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+REMOTE_BRANCH=master
+PROJECT_NAME=SStickerKit
+POD_SPEC=SStickerKit.podspec
+
+POD=${COCOAPODS:-pod}
