@@ -27,9 +27,7 @@
 //@property (nonatomic, assign) CGSize size;
 @property (nonatomic, assign) CGFloat scale;
 
-//@property (nonatomic, assign) CGPoint center;
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
+@property (nonatomic, assign) CGPoint center;
 
 //@property (nonatomic, assign) CGAffineTransform transform;
 @property (nonatomic, assign) CGFloat a;
