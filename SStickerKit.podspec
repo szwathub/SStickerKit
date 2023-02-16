@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SStickerKit'
-  s.version          = '1.3.0'
+  s.version          = '1.4.0'
   s.summary          = 'SStickerKit.'
 
 # This description is used to generate tags and improve search results.

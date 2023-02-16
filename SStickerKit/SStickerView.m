@@ -132,9 +132,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 
 // MARK: - Public Methods
 - (void)updateStickerConstraints {
-    self.active  = self.sticker.active;
-
-    self.center    = self.sticker.center;
+    self.active = self.sticker.active;
+    self.center = CGPointMake(self.sticker.x, self.sticker.y);
 
 //    self.transform = self.sticker.transform;
     self.transform = CGAffineTransformMake(self.sticker.a, self.sticker.b,
@@ -155,7 +154,7 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
 }
 
 - (void)resetStickerConstraints {
-    self.center    = self.sticker.center;
+    self.center = CGPointMake(self.sticker.x, self.sticker.y);
 //    self.transform = self.sticker.transform;
     self.transform = CGAffineTransformMake(self.sticker.a, self.sticker.b,
                                            self.sticker.c, self.sticker.d,
@@ -212,7 +211,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
 
-    self.sticker.center    = self.center;
+    self.sticker.x = self.center.x;
+    self.sticker.y = self.center.y;
 //    self.sticker.transform = self.transform;
     self.sticker.a = self.transform.a;
     self.sticker.b = self.transform.b;
@@ -241,7 +241,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
 
-    self.sticker.center    = self.center;
+    self.sticker.x = self.center.x;
+    self.sticker.y = self.center.y;
     self.sticker.scale     = scale * self.sticker.scale;
 //    self.sticker.transform = self.transform;
     self.sticker.a = self.transform.a;
@@ -338,7 +339,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.center = CGPointMake(self.center.x + pt.x , self.center.y + pt.y);
     [gesture setTranslation:CGPointMake(0, 0) inView:self.superview];
 
-    self.sticker.center = self.center;
+    self.sticker.x = self.center.x;
+    self.sticker.y = self.center.y;
 
     if (_delegateFlags.viewHasModified) {
         [self.delegate stickerViewHasModified:self];
@@ -364,7 +366,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
 
-    self.sticker.center    = self.center;
+    self.sticker.x = self.center.x;
+    self.sticker.y = self.center.y;
 //    self.sticker.transform = self.transform;
     self.sticker.a = self.transform.a;
     self.sticker.b = self.transform.b;
@@ -389,7 +392,8 @@ NSString *const SStickerActionTransform = @"com.szwathub.stickerkit.action.trans
     self.center = CGPointMake(self.center.x + (self.center.x - oPoint.x),
                               self.center.y + (self.center.y - oPoint.y));
 
-    self.sticker.center    = self.center;
+    self.sticker.x = self.center.x;
+    self.sticker.y = self.center.y;
     self.sticker.scale     = scale * self.sticker.scale;
 //    self.sticker.transform = self.transform;
     self.sticker.a = self.transform.a;
